@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Records</title>
+    </head>
+    <body>
+        <h2 style="color: blue; text-align: center;">View Record</h2>
+        <table border="1.5" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Mail</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in data %}
+                    {% set i=loop.index %}
+                <tr>
+                    <td style="color: rebeccapurple;">{{i}}</td>
+                    <td style="color: rebeccapurple;">{{rec['name']}}</td>
+                    <td style="color: rebeccapurple;">{{rec['address']}}</td>
+                    <td style="color: rebeccapurple;">{{rec['contact']}}</td>
+                    <td style="color: rebeccapurple;">{{rec['mail']}}</td>
+                    <td ><a href="{{url_for('update',id=rec['pid'])}}"  style="color: rgb(6, 121, 27);">Update</a></td>
+                    <td ><a href="{{url_for('delete',id=rec['pid'])}}"  style="color: rgb(121, 21, 6);">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        <div>
+           <button style="margin-top: 2%;"><a href="/">Home</a></button> 
+        </div>
+    </body>
+</html>
